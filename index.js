@@ -1,5 +1,6 @@
 
 var express = require ('express');
+var MongoClient = require('mongodb').MongoClient;
 
 const app = express()
 var path=require('path');
@@ -7,8 +8,16 @@ var bodyParser= require ('body-parser');
 
 const port = 3000;
                      
-app.use(bodyParser.urlencoded({ extended: true }));
+var url="mongodb+srv://test123:test@cluster0.vef7a.mongodb.net/?retryWrites=true&w=majority"
 
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+  console.log("Database created!");
+    db.close();    
+ });
+
+    app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('views', path.join(__dirname, 'views'));
 
