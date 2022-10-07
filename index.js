@@ -1,6 +1,7 @@
+var MongoClient = require('mongodb').MongoClient;
 
 var express = require ('express');
-var MongoClient = require('mongodb').MongoClient;
+var session = require ('express-session');
 
 const app = express()
 var path=require('path');
@@ -14,10 +15,19 @@ var url="mongodb+srv://test123:test@cluster0.vef7a.mongodb.net/?retryWrites=true
 MongoClient.connect(url, function(err, db) {
     if (err) throw err;
   console.log("Database created!");
+  
     db.close();    
  });
 
-    app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+//session management 
+app.use(session({
+	secret: 'somerandomstuffs',
+	resave: false, 
+	saveUninitialized: false,
+	cookie: { expires: 600000 } }));    
 
 app.set('views', path.join(__dirname, 'views'));
 

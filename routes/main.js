@@ -12,17 +12,20 @@ app.post('/bookadded', function (req,res) {
     // saving data in database
         var MongoClient = require('mongodb').MongoClient;
             
-         MongoClient.connect(url, function(err, client) {
+         MongoClient.connect(url, async function(err, client) {
             if (err) throw err;
-                  var db = client.db ('mybookshopdb');  
+                  var db = await client.db ('mybookshopdb');  
     //insert books with price into database	   
-            db.collection('books').insertOne({
+           
+
+    await db.collection('books').insertOne({
                        name: req.body.name,
                          price: req.body.price                                                                                                
                          });
                            client.close();
-      res.send( '<a href='+'http://localhost:3000/'+'>Home</a>'+ '<br />'+'This book is added to the database, name: '+ req.body.name + ' and price is : £'+ req.body.price);   
+      res.send( '<a href='+'http://localhost:3000/'+'>Home</a>'+ 
+      '<br />'+'This book is added to the database, name: '+ req.body.name + ' and price is : £'+ req.body.price);   
          });  }); 
-         
+
 }
    
