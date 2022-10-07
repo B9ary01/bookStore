@@ -7,7 +7,7 @@ add and display books
 
 ## Development
 
--Run the  app with `npm run start`
+- Run the  app with `npm run start`
 
 ## References
 

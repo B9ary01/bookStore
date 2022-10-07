@@ -3,6 +3,7 @@ module.exports = function(app) {
 
 app.get('/',function(req,res){  res.render('index.html')  });	
 app.get('/addbook',function(req,res){ res.render('addbook.html');  });
+app.get('/about',function(req,res){ res.render('about.html');  });
 
 //mongo url
 var url="mongodb+srv://test123:test@cluster0.vef7a.mongodb.net/?retryWrites=true&w=majority"
