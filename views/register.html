@@ -1,0 +1,38 @@
+<!doctype html>
+
+ <html>
+	
+<head> 
+<title>Register</title>  
+</head>
+
+<body>
+
+ <a href="http://localhost:3000/">Home</a></br>
+	
+ <h1><bold> This is a Register page</bold> </h1>
+
+<p>Please enter all the required fields to register</p>
+
+<form action="/registered" method="POST">
+	<label for="firstname">Firstname:</label><br>
+	<input type="text" name="fname" placeholder="enter firstname" required><br> <br>
+	
+	<label for="lastname">Lastname:</label><br>
+	<input type="text" name="lname" placeholder="enter lastname" required><br> <br>
+	
+	<label for="uname">Username:</label><br>
+	<input type="text" name="username" placeholder="enter username" ><br> <br>
+	
+	<label for="upass">Password:</label><br>
+	<input type="text" name="password" placeholder="enter password"required ><br> <br>
+	
+	<label for="uemail">Email:</label><br>
+	<input type="text" name="email" placeholder="enter email" required ><br> <br>
+<input type="submit" value="Submit" >
+</form>
+
+
+</body>
+</html>
+
