@@ -18,11 +18,12 @@
   },
   "homepage": "https://github.com/B9ary01/bookStore#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
-    "mongodb": "^3.6.3",
     "express-session": "^1.17.3",
+    "mongodb": "^3.6.3",
     "nodemon": "^2.0.20"
   }
 }
