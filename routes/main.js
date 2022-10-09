@@ -54,6 +54,39 @@ res.send( '<a href='+'http://localhost:3000/'+'>Home</a>'+ '<br />'+
 
 
 
+//login
+app.post('/loggedin', function (req,res) {
+	const bcrypt = require('bcrypt');
+  const plainPassword = req.body.password;
+
+	MongoClient.connect(url,function(err, client) {
+	if (err) throw err;
+	var db = client.db('mybookshopdb');
+//match username saved in the database
+	db.collection('users').findOne({	
+	username:req.body.username
+	}).then(function (user) {
+
+//display invalid message if the username is wrong
+ if(!user){res.send( '<a href='+'http://localhost:3000/'+'>Home</a>'+ 
+ '<br />'+ '<br />'+" Please try again! Username is invalid");
+ }else{
+
+//compare the password and hashed password from the database
+ bcrypt.compare(plainPassword,user.password, function(err, result) {
+	if(result==true){
+  // **** save user session here, when login is successful
+		req.session.userId = req.body.username;
+	//if result is true, display successful and unsuccessful if it is false
+	res.send('<a href='+'http://localhost:3000/'+'>Home</a>'+ '<br />'+ 
+                '<br />'+ " Login Successful!");
+          } 
+	 else{res.send( '<a href='+'http://localhost:3000/'+'>Home</a>'+ '<br />'+ '<br />'+ 
+   " Please try again! Your password is not correct, Login UnSuccessful!");
+  } }); }  
+  });  });   });
+
+
 //bookadded route
 app.post('/bookadded', function (req,res) {
     // saving data in database
