@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Listusers</title>
+    <style>
+        h1 {
+            color: green;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            font-family: verdana;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<a href="http://localhost:3000/">
+    <i class="fa fa-home"
+    style="font-size:28px; padding-right:5px; color:lightsmoke"></i>Home</a></br>
+
+<h1> List of Users </h1>
+
+<body style="background-color:#f3f2f0">
+
+    <p>You can see username, firstname, lastname and email of all registered users here:</p>
+    <ul>
+        <table align="center" cellpadding="1" cellspacing="4" border="4" style="background-color:#f3f2f0;"
+            bgcolor="#f3f2f0;">
+
+            <tr>
+                <th>Username</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+            </tr>
+
+            <% availableusers.forEach(function(users){ %>
+                <tr style="padding-top:8px;padding-bottom:5px;padding-right:0;padding-left:5px;">
+                    <td style="padding-left:5px;padding-right:5px">
+                        <%= users.username %>
+                    </td>
+                    <td style="padding-left:5px;padding-right:5px">
+                        <%= users.fname %>
+                    </td>
+                    <td style="padding-left:5px;padding-right:5px">
+                        <%= users.lname %>
+                    </td>
+                    <td style="padding-left:5px;padding-right:5px">
+                        <%= users.email %>
+                    </td>
+
+                </tr>
+
+                <% }) %>
+        </table>
+    </ul>
+
+</body>
+
+</html>

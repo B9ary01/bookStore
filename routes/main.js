@@ -120,5 +120,18 @@ app.get('/booklist', function(req, res) {
            client.close();
         }); });  });
 
+
+//listusers
+app.get('/listusers', function(req, res) {
+  var MongoClient = require('mongodb').MongoClient;
+MongoClient.connect(url, function (err, client) {
+if (err) throw err;
+var db = client.db('mybookshopdb');
+db.collection('users').find().toArray((findErr, results) => {if (findErr) throw findErr;
+else
+res.render('userlist.ejs', {availableusers:results});client.close();    
+});  });  });
+
+
 }
    
