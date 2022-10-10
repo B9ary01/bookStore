@@ -1,38 +1,61 @@
 <!doctype html>
 
- <html>
-	
-<head> 
-<title>Register</title>  
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+    
+        h1 {
+            color: green;
+            text-align: center;
+        }
+
+        form {
+            border: 3px solid #f1f1f3;
+            text-align: center;
+        }
+
+        p {
+            font-family: verdana;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+
+    <title>Register</title>
 </head>
 
 <body>
 
- <a href="http://localhost:3000/">Home</a></br>
-	
- <h1><bold> This is a Register page</bold> </h1>
+    <a href="http://localhost:3000/">Home</a></br>
 
-<p>Please enter all the required fields to register</p>
+    <h1>
+        <bold> This is a Register page</bold>
+    </h1>
 
-<form action="/registered" method="POST">
-	<label for="firstname">Firstname:</label><br>
-	<input type="text" name="fname" placeholder="enter firstname" required><br> <br>
-	
-	<label for="lastname">Lastname:</label><br>
-	<input type="text" name="lname" placeholder="enter lastname" required><br> <br>
-	
-	<label for="uname">Username:</label><br>
-	<input type="text" name="username" placeholder="enter username" ><br> <br>
-	
-	<label for="upass">Password:</label><br>
-	<input type="text" name="password" placeholder="enter password"required ><br> <br>
-	
-	<label for="uemail">Email:</label><br>
-	<input type="text" name="email" placeholder="enter email" required ><br> <br>
-<input type="submit" value="Submit" >
-</form>
+    <p>Please enter all the required fields to register</p>
+
+    <form action="/registered" method="POST">
+        <label for="firstname">Firstname:</label><br>
+        <input type="text" name="fname" placeholder="enter firstname" required><br> <br>
+
+        <label for="lastname">Lastname:</label><br>
+        <input type="text" name="lname" placeholder="enter lastname" required><br> <br>
+
+        <label for="uname">Username:</label><br>
+        <input type="text" name="username" placeholder="enter username"><br> <br>
+
+        <label for="upass">Password:</label><br>
+        <input type="text" name="password" placeholder="enter password" required><br> <br>
+
+        <label for="uemail">Email:</label><br>
+        <input type="text" name="email" placeholder="enter email" required><br> <br>
+        <input type="submit" value="Submit">
+    </form>
 
 
 </body>
-</html>
 
+</html>

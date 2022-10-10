@@ -1,25 +1,72 @@
- <!doctype html>
-  <html> 
+<!doctype html>
+<html>
 
- <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>home page</title>
-</head> 
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>home page</title>
+    <style>
+        body {
+            background-color: lightgrey;
+            background-image: url("bgdesert.jpg");
+        }
+
+        h1 {
+            color: rgba(180, 83, 9);
+            text-align: center;
+        }
+
+        p {
+            font-family: verdana;
+            font-size: 17px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #366;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            font-size: 17px;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: rgba(254, 243, 199);
+        }
+    </style>
+</head>
 
 <body>
 
-<li><a class="active" href="http://localhost:3000/">Home</a></li> 
-<li><a href= "http://localhost:3000/register">Register</a></li>
-<li><a href= "http://localhost:3000/login">Login</a></li>
+    <ul>
+        <li><a class="active" href="http://localhost:3000/">Home</a></li>
+        <li><a href="http://localhost:3000/register">Register</a></li>
+        <li><a href="http://localhost:3000/login">Login</a></li>
 
-<li><a href="http://localhost:3000/addbook">AddBook</a></li> 
-<li><a href= "http://localhost:3000/booklist">BookList</a></li>  
-<li><a href= "http://localhost:3000/about">About</a></li>  
+        <li><a href="http://localhost:3000/addbook">AddBook</a></li>
+        <li><a href="http://localhost:3000/booklist">BookList</a></li>
+        <li><a href="http://localhost:3000/about">About</a></li>
 
-         
-<h2>Welcome to Namche BookStore </h2>
+    </ul>
+    <h1>Welcome to Namche BookStore </h1>
 
 
 </body>
-</html>
 
+</html>

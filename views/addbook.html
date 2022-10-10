@@ -1,27 +1,50 @@
-<!doctype html> 
-<html> 
+<!doctype html>
+<html>
 
-	<head> 	
-	<title>Add books</title>  
-    </head> 
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+		
+		h1 {
+			color: green;
+			text-align: center;
+		}
+
+		title {
+			text-align: center;
+		}
+
+		form {
+			border: 3px solid #f1f1f3;
+			text-align: center;
+		}
+
+		p {
+			font-family: verdana;
+			font-size: 16px;
+			text-align: center;
+		}
+	</style>
+	<title>Add books</title>
+</head>
 
 <body>
 	<a href="http://localhost:3000/">Home</a></br>
 
-<p>Please enter book name and price.</p> 
-<!--add book form-->
-<form action="/bookadded" method="POST">
+	<p>Please enter book name and price.</p>
+	<!--add book form-->
+	<form action="/bookadded" method="POST">
 
-	<label for="bname">Book name:</label><br>
-	<input type="text" name="name" placeholder="Enter book name" required> <br/><br/>
+		<label for="bname">Book name:</label><br>
+		<input type="text" name="name" placeholder="Enter book name" required> <br /><br />
 
-	<label for="bprice">Book price:</label><br>
-	<input type="text" name="price" placeholder="Enter book price" required><br/> <br/>
-	<input type="submit" value="Submit" >
-	
-</form>
+		<label for="bprice">Book price:</label><br>
+		<input type="text" name="price" placeholder="Enter book price" required><br /> <br />
+		<input type="submit" value="Submit">
+
+	</form>
 
 </body>
 
 </html>
-

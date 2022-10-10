@@ -1,27 +1,47 @@
-
-<!doctype html> 
+<!doctype html>
 <html>
 
 <head>
-<title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Login</title>
+
+    <style>
+       
+        h1 {
+            text-align: center;
+            color: green;
+        }
+
+        p {
+            text-align: center;
+            font-family: verdana;
+            font-size: 16px;
+        }
+
+        form {
+            border: 3px solid #f1f1f3;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
 
-<a href="http://localhost:3000/">Home</a></br>
+    <a href="http://localhost:3000/">Home</a></br>
 
-<h1>Login</h1>
-<p>Please enter username and password to login</p>
+    <h1>Login</h1>
+    <p>Please enter username and password to login</p>
 
-<form action="/loggedin" method="POST">
-	<label for="uname">Username:</label><br>
-	<input id="search-box" type="text" name="username" placeholder="enter username" required ><br><br>
-	
-	<label for="pass">Password:</label><br>
-	<input id="search-box" type="text" name="password" placeholder="enter password" required ><br><br>
-        <input type="submit" value="Submit" >
-</form>
+    <form action="/loggedin" method="POST">
+        <label for="uname">Username:</label><br>
+        <input id="search-box" type="text" name="username" placeholder="enter username" required><br><br>
 
-</body> 
+        <label for="pass">Password:</label><br>
+        <input id="search-box" type="text" name="password" placeholder="enter password" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
 </html>
-
