@@ -6,7 +6,8 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
    
-   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    
    <style>
@@ -44,12 +45,36 @@ style="font-size:28px; padding-right:5px; color:lightsmoke"></i>Home</a></br>
 
     <h3>Please enter bookname to see available books in our store:</h3>
 
-    <form action="" method="GET">
+    <form action="autocomplete" method="GET">
         <label for="bname">Bookname:</label><br>
-        <input type="text" class="form-control" name="name" placeholder="enter book name" required>
+        <input type="text" id="searchName" class="form-control" name="name" placeholder="enter book name" required>
     </form>
 
-   
+
+
+    <script>
+
+        $(function(){
+         $('#searchName').autocomplete({
+        source: function(req,res){
+        $.ajax({
+        url:"autocomplete/",
+        dataType:"jsonp",
+        type:"GET",
+         data:req,
+        success: function(data){ res(data)  },
+        error: function(err){ console.log(err.status); }
+        }); },
+        minLength:1,
+        
+        select: function(event,ui){
+        if(ui.item){
+         $('#searchName').val(ui.item.label);
+        }     }
+        });   
+        });      
+    </script>
+        
 
 </body>
 
