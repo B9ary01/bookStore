@@ -8,6 +8,9 @@ app.get('/login', function(req,res) { res.render('login.html');  });
 app.get('/addbook',function(req,res){ res.render('addbook.html');  });
 app.get('/about',function(req,res){ res.render('about.html');  });
 
+app.get('/searchbooks',function(req,res){res.render('searchBook.ejs'); });
+
+
 //mongo url
 var url="mongodb+srv://test123:test@cluster0.vef7a.mongodb.net/?retryWrites=true&w=majority"
 var MongoClient = require('mongodb').MongoClient;
