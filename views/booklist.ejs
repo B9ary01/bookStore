@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 
   <style>
     h1 {
@@ -21,6 +22,34 @@
       font-size: 16px;
       text-align: center;
     }
+    .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
   </style>
 
   <title>Book List</title>
@@ -32,36 +61,21 @@
    <i class="fa fa-home"
    style="font-size:28px;padding-right:5px;color:lightsmoke"></i>Home</a></br>
 
-
-
   <h1>Available Books</h1>
 
-
-  <ul>
-    <table>
-
-      <tr>
-        <th>Book Name</th>
-        <th>Price</th>
-      </tr>
-
-      <% availablebooks.forEach(function(book){ %>
-
-        <tr>
-
-          <td>
-            <%= book.name %>
-          </td>
-          <td> £<%= book.price %>
-          </td>
-
-        </tr>
-        <% }) %>
-
-    </table>
-  </ul>
-
-
+  <% availablebooks.forEach(function(book){ %>
+    
+  
+          <div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbpK-otIP2gAipjyHM4TlQK9DLU1Y9rpMk_H4tKnQ7M_7UndFpcEqqoA0AUYdLxe2mJ6M&usqp=CAU"
+   alt="book image" style="width:100%">
+  <h1><%= book.name %></h1>
+  <p class="price"> £<%= book.price %></p>
+  
+  
+</div>
+    
+    <% }) %>
 </body>
 
 </html>
