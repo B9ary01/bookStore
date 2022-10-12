@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        h1 {
+            color: green;
+            text-align: center;
+        }
+
+        form {
+            border: 3px solid #f1f1f3;
+            text-align: center;
+        }
+
+        p {
+            font-family: verdana;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+
+    <title>Delete Book</title>
+
+</head>
+
+<body>
+
+    <a href="http://localhost:3000/"><i class="fa fa-home" style="font-size:28px;padding-right:5px;
+    color:lightsmoke"></i>Home</a></br>
+
+    <h1>Delete Book </h1>
+    <p>Please enter bookname to delete it from the database</p>
+
+    <!-- delete book form -->
+    <form action="/deletebooks" method="POST">
+
+        <label for="bname">Bookname:</label><br>
+        <input id="search-box" type="text" name="name" placeholder="enter bookname" required><br> <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

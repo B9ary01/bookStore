@@ -9,6 +9,8 @@ module.exports = function (app) {
   app.get('/about', function (req, res) { res.render('about.html'); });
 
   app.get('/searchbooks', function (req, res) { res.render('searchBook.ejs'); });
+  app.get('/deletebook', function (req, res) { res.render('deleteBook.html'); });
+
 
 
   //mongo url
@@ -180,6 +182,26 @@ module.exports = function (app) {
     });
   });
 
+//Delete book from database 
+app.post('/deletebooks', function (req,res) {
+	MongoClient.connect(url,function(err, client) {
+		if (err) throw err;
+	var db = client.db('mybookshopdb');
+	db.collection('books').findOne({ name:req.body.name
+	}).then(function (name) {
+	if(!name){
+	res.send('<a href='+'http://localhost:3000/deletebook'+'>Go Back</a>'+ '<br />'+
+	'<br />'+ " Please try again! bookname is not correct");}else
+//delete book if bookname matches with the details saved in the database
+	db.collection('books').deleteMany({
+		name:req.body.name
+	}).then(function (data){ 
+	if(data){
+		res.send( '<a href='+'http://localhost:3000/'+'>Home</a>'+ '<br />'+'Book data '+req.body.name+' is removed from database.'+ '<br />'+ " Please check the booklist page to confirm if the book is removed from database. ");
+	} }); });
+ }); 
+});
+	
 
 
 }
