@@ -1,15 +1,21 @@
 
 module.exports = function (app) {
 
+    //if user is not loggedin, the user is redirected to the login page
+    const redirectToLogin = (req, res, next) => { if (!req.session.userId ) {
+      res.redirect('./login') }
+            else { next (); }
+  }
+
   app.get('/', function (req, res) { res.render('index.html') });
   app.get('/register', function (req, res) { res.render('register.html'); });
   app.get('/login', function (req, res) { res.render('login.html'); });
 
-  app.get('/addbook', function (req, res) { res.render('addbook.html'); });
+  app.get('/addbook',redirectToLogin, function (req, res) { res.render('addbook.html'); });
   app.get('/about', function (req, res) { res.render('about.html'); });
 
-  app.get('/searchbooks', function (req, res) { res.render('searchBook.ejs'); });
-  app.get('/deletebook', function (req, res) { res.render('deleteBook.html'); });
+  app.get('/searchbooks',redirectToLogin, function (req, res) { res.render('searchBook.ejs'); });
+  app.get('/deletebook',redirectToLogin,function (req, res) { res.render('deleteBook.html'); });
 
 
 
@@ -82,7 +88,7 @@ module.exports = function (app) {
 
         //display invalid message if the username is wrong
         if (!user) {
-          res.send('<a href=' + 'http://localhost:3000/' + '>Home</a>' +
+          res.send('<a href=' + 'http://localhost:3000/login' + '>Back</a>' +
             '<br />' + '<br />' + " Please try again! Username is invalid");
         } else {
 
@@ -96,7 +102,7 @@ module.exports = function (app) {
                 '<br />' + " Login Successful!");
             }
             else {
-              res.send('<a href=' + 'http://localhost:3000/' + '>Home</a>' + '<br />' + '<br />' +
+              res.send('<a href=' + 'http://localhost:3000/login' + '>Back</a>' + '<br />' + '<br />' +
                 " Please try again! Your password is not correct, Login UnSuccessful!");
             }
           });
@@ -128,7 +134,7 @@ module.exports = function (app) {
 
 
   //display all the available books
-  app.get('/booklist', function (req, res) {
+  app.get('/booklist', redirectToLogin ,function (req, res) {
 
     MongoClient.connect(url, async function (err, client) {
       if (err) throw err;
@@ -144,7 +150,7 @@ module.exports = function (app) {
 
 
   //listusers
-  app.get('/listusers', function (req, res) {
+  app.get('/listusers',redirectToLogin, function (req, res) {
     var MongoClient = require('mongodb').MongoClient;
     MongoClient.connect(url, function (err, client) {
       if (err) throw err;
@@ -202,6 +208,15 @@ app.post('/deletebooks', function (req,res) {
  }); 
 });
 	
+//logout
+app.get('/logout', redirectToLogin, (req,res) => {
+	
+	req.session.destroy(err => {
+		if (err) {
+			 return res.redirect('./')
+		}
+	res.send('You are now logged out. <a href='+'/'+'>Home</a>');
+	}); });
 
 
 }
